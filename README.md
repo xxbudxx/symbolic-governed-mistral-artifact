@@ -4,7 +4,7 @@
 
 # Symbolic-Governed Mistral-7B — Governance Artifact
 
-This model is a sealed governance-layered variant of Mistral-7B-Instruct-v0.2, governed by a symbolic enforcement mesh.
+This repository contains the sealed governance artifact for the symbolic-wrapped variant of `Mistral-7B-Instruct-v0.2`.
 
 ## Governance Properties
 
@@ -12,7 +12,6 @@ This model is a sealed governance-layered variant of Mistral-7B-Instruct-v0.2, g
 - Contradiction tracking and truth-locking
 - Symbolic output postprocessor
 - No fine-tuning; base model untouched
-- Hugging Face model card: https://huggingface.co/xbud/symbolic-governed-mistral
 
 ## Self-Evaluated Benchmarks (Symbolic Exact-Match)
 
@@ -26,6 +25,17 @@ This model is a sealed governance-layered variant of Mistral-7B-Instruct-v0.2, g
 
 Evaluations were performed using deterministic symbolic logic with output validation through `symbolic_postprocessor_locked.py`.
 
-## Base Model
+## Hugging Face Model
 
-- [`mistralai/Mistral-7B-Instruct-v0.2`](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2)
+The executable symbolic-governed model and runtime can be found at:  
+https://huggingface.co/xbud/symbolic-governed-mistral
+
+This artifact includes:
+- Benchmark results
+- Postprocessor logic
+- Governance metadata
+- LICENSE
+
+## License
+
+This repository is licensed under the [Apache 2.0 License](LICENSE).
