@@ -1,3 +1,7 @@
+[![License](https://img.shields.io/badge/license-Apache_2.0-green.svg)](LICENSE)
+[![Model on Hugging Face](https://img.shields.io/badge/view%20on-HuggingFace-blue?logo=huggingface)](https://huggingface.co/xbud/symbolic-governed-mistral)
+![Governance Sealed](https://img.shields.io/badge/Tier%2010%20Sealed-%E2%9C%85-blueviolet)
+
 # Symbolic-Governed Mistral-7B — Governance Artifact
 
 This model is a sealed governance-layered variant of Mistral-7B-Instruct-v0.2, governed by a symbolic enforcement mesh.
