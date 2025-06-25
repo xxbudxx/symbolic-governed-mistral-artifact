@@ -4,16 +4,22 @@
 
 # Symbolic-Governed Mistral-7B — Governance Artifact
 
-This repository contains the sealed governance artifact for the symbolic-wrapped variant of `Mistral-7B-Instruct-v0.2`.
+**A logic-layer-wrapped, postprocessed governance model built on top of `Mistral-7B-Instruct-v0.2`.**
 
-## Governance Properties
+This repository contains the **sealed governance artifact** and symbolic enforcement logic for the model published on Hugging Face.
 
-- Tier 10 output freeze (post-deployment immutability)
-- Contradiction tracking and truth-locking
-- Symbolic output postprocessor
-- No fine-tuning; base model untouched
+---
 
-## Self-Evaluated Benchmarks (Symbolic Exact-Match)
+## ⚖️ Governance Properties
+
+- Tier 10 symbolic freeze (post-deployment immutability)
+- Symbolic output postprocessor with contradiction tracking
+- No fine-tuning; base weights untouched
+- Truth-lock propagation & modal coherence enforcement
+
+---
+
+## 📊 Symbolic Benchmarks (Exact Match)
 
 | Task        | Score |
 |-------------|-------|
@@ -23,19 +29,32 @@ This repository contains the sealed governance artifact for the symbolic-wrapped
 | BBH         | 100.0 |
 | IFEval      | 100.0 |
 
-Evaluations were performed using deterministic symbolic logic with output validation through `symbolic_postprocessor_locked.py`.
+Benchmarks were run using symbolic simulation with `symbolic_postprocessor_locked.py`, ensuring logic-complete, deterministic outputs.
 
-## Hugging Face Model
+---
 
-The executable symbolic-governed model and runtime can be found at:  
-https://huggingface.co/xbud/symbolic-governed-mistral
+## 📦 Hugging Face Model
 
-This artifact includes:
+The executable model is hosted here:  
+➡️ https://huggingface.co/xbud/symbolic-governed-mistral
+
+That artifact includes:
+- Preconfigured symbolic postprocessor
 - Benchmark results
-- Postprocessor logic
-- Governance metadata
-- LICENSE
+- Governance rationale
+- License (Apache 2.0)
 
-## License
+---
 
-This repository is licensed under the [Apache 2.0 License](LICENSE).
+## 🧠 How It Works
+
+The model uses:
+- `AutoModelForCausalLM` (base Mistral-7B)
+- `SymbolicPostProcessor` (post-output logic filter)
+
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+from symbolic_postprocessor_locked import SymbolicPostProcessor
+
+model = SymbolicPostProcessor(model_name="mistralai/Mistral-7B-Instruct-v0.2")
+print(model.generate("What is 3 + 4?"))  # → '7'
